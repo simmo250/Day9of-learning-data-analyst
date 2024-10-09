@@ -1,0 +1,51 @@
+create database class2; 
+
+show databases; 
+use class2; 
+
+create table employees_new(
+id int,
+firstname varchar(70),
+lastname varchar(90),
+department varchar(90),
+salary decimal(10, 2),
+age int 
+);  
+
+describe employees_new; 
+
+insert into employees_new(id,firstname,lastname,department,salary,age)
+values(1,'John','Doe','Sales',6000.00,28),
+       (2,'Jane','Smith','HR',55000.00,32),
+       (3,'Michael','Johnson','IT', 75000.00,40),
+       (4,'Emily',  'Brown', 'Finance', 62000.00, 29),
+       (5, 'David', 'William', 'Admin', 58000.00, 35); 
+       
+select * from employees_new
+where age=32;       
+
+select * from employees_new
+where salary <62000.00;        
+
+select * from employees_new
+where department <> 'Admin';       
+
+select * from employees_new
+where salary <6000.00 and age=32;       
+
+-- logical operator
+select * from employees_new 
+where department = 'Admin' or department = 'Sales'; 
+
+select * from employees_new 
+where department = 'Admin' or department IN('Admin', 'Sales'); 
+
+select * from employees_new 
+where age between 28 and 35; 
+
+select * from employees_new 
+where firstname like '%n' ; 
+
+grant select on employees_new to John;  
+
+
